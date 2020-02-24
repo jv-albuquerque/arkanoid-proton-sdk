@@ -1702,7 +1702,6 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\source\App.cpp" />
-    <ClCompile Include="MovebleObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\shared\android\AndroidUtils.h" />
@@ -1785,8 +1784,6 @@
     <ClInclude Include="..\..\shared\win\powerVR\OGLES\Include\GLES\gl.h" />
     <ClInclude Include="..\..\shared\win\WinUtils.h" />
     <ClInclude Include="..\source\App.h" />
-    <ClInclude Include="MovebleObject.h" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\shared\android\v2_src\java\BillingReceiver.java" />
@@ -1869,9 +1866,6 @@
     <Text Include="..\android\readme.txt" />
     <Text Include="..\flash\exports.txt" />
     <Text Include="..\linux\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="RTBareBones.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

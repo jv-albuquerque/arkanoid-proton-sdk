@@ -1,1 +1,0 @@
-sh ../../RTPack/linux/update_media.sh

@@ -8,7 +8,6 @@
 #pragma once
 
 #include "BaseApp.h"
-#include "../windows_vs2017/MovebleObject.h"
 
 class App: public BaseApp
 {
@@ -33,7 +32,7 @@ public:
 	void OnArcadeInput(VariantList *pVList);
 
 private:
-	MovebleObject* object;
+
 	bool m_bDidPostInit;
 	Surface m_surf; //for testing
 };

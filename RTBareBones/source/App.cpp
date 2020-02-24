@@ -51,16 +51,6 @@ App::~App()
 
 bool App::Init()
 {
-	object = new MovebleObject();
-
-	CL_Vec2f size(80, 20);
-	CL_Vec2f initialPos(100, GetScreenSizeYf() - 20 - size.y);
-	CL_Vec4f color(224, 176, 255, 255);
-	float speed = 100;
-
-	object->Init(initialPos, size, color, speed);
-
-
 	
 	if (m_bInitted)	
 	{
@@ -247,8 +237,6 @@ void App::Update()
 
 	BaseApp::Update();
 
-	object->Update(GetDeltaTick());
-
 	if (!m_bDidPostInit)
 	{
 		//stuff I want loaded during the first "Update"
@@ -315,28 +303,29 @@ void App::Draw()
 {
 	//Use this to prepare for raw GL calls
 	PrepareForGL();
+#ifdef _DEBUG
+	//LogMsg("Doing draw");
+#endif
 	glClearColor(0,0,0,1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	CLEAR_GL_ERRORS() //honestly I don't know why I get a 0x0502 GL error when doing the FIRST gl action that requires a context with emscripten only
 
 	//draw our game stuff
-	//DrawFilledRect(10.0f,10.0f,GetScreenSizeXf()/3,GetScreenSizeYf()/3, MAKE_RGBA(255,255,0,255));
-	//DrawFilledRect(0,0,64,64, MAKE_RGBA(0,255,0,100));
-
-	object->Draw();
+	DrawFilledRect(10.0f,10.0f,GetScreenSizeXf()/3,GetScreenSizeYf()/3, MAKE_RGBA(255,255,0,255));
+	DrawFilledRect(0,0,64,64, MAKE_RGBA(0,255,0,100));
 
 	//after our 2d rect call above, we need to prepare for raw GL again. (it keeps it in ortho mode if we don't for speed)
 	PrepareForGL();
-	//RenderSpinningTriangle();
+	RenderSpinningTriangle();
 	//RenderGLTriangle();
 	//let's blit a bmp, but first load it if needed
 
-	/*if (!m_surf.IsLoaded())
+	if (!m_surf.IsLoaded())
 	{
 		m_surf.LoadFile("interface/test.bmp");
 	}
 
-	m_surf.Bind();*/
+	m_surf.Bind();
 
 	//RenderTexturedGLTriangle();
 	//RenderTexturedGLTriangleWithDrawElements();
@@ -350,16 +339,16 @@ void App::Draw()
 	//m_surf.BlitEx(destRect, texRect, MAKE_RGBA(255,255,255,255) , 180*SinGamePulseByMS(3000), CL_Vec2f(m_surf.GetWidth()/2,m_surf.GetHeight()/2));
 
 	//blit it normally
-	//m_surf.Blit(0, 0);
+	m_surf.Blit(0, 0);
 	//m_surf.Blit(100, 100);
 
-	//m_surf.BlitScaled(100, 200, CL_Vec2f(1,1), ALIGNMENT_CENTER, MAKE_RGBA(255,255,255,255), SinGamePulseByMS(3000)*360);
+	m_surf.BlitScaled(100, 200, CL_Vec2f(1,1), ALIGNMENT_CENTER, MAKE_RGBA(255,255,255,255), SinGamePulseByMS(3000)*360);
 
-	//m_surf.BlitRotated(400, 200, CL_Vec2f(0.2f,0.2f), ALIGNMENT_CENTER, MAKE_RGBA(255,255,255,255), SinGamePulseByMS(4000)*360,
-	//	CL_Vec2f(20,-20), NULL);
+	m_surf.BlitRotated(400, 200, CL_Vec2f(0.2f,0.2f), ALIGNMENT_CENTER, MAKE_RGBA(255,255,255,255), SinGamePulseByMS(4000)*360,
+		CL_Vec2f(20,-20), NULL);
 
 	//GetFont(FONT_SMALL)->Draw(0,0, "test");
-	//GetFont(FONT_SMALL)->DrawScaled(0,GetScreenSizeYf()-50, "white `2Green `3Cyan `4Red `5Purp ",1+SinGamePulseByMS(3000)*0.7f);
+	GetFont(FONT_SMALL)->DrawScaled(0,GetScreenSizeYf()-50, "white `2Green `3Cyan `4Red `5Purp ",1+SinGamePulseByMS(3000)*0.7f);
 	
 	//the base handles actually drawing the GUI stuff over everything else, if applicable, which in this case it isn't.
 	BaseApp::Draw();

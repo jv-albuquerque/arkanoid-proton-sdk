@@ -334,9 +334,6 @@
     <ClCompile Include="..\..\shared\SDL\SDL2Main.cpp">
       <Filter>shared\SDL</Filter>
     </ClCompile>
-    <ClCompile Include="MovebleObject.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\source\App.h">
@@ -579,10 +576,6 @@
     <ClInclude Include="..\..\shared\linux\PlatformSetupLinux.h">
       <Filter>shared\linux</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="MovebleObject.h">
-      <Filter>source</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\android\ant.properties">
@@ -815,8 +808,5 @@
     <CustomBuild Include="..\android\jni\Android.mk">
       <Filter>source\android</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="RTBareBones.rc" />
   </ItemGroup>
 </Project>
