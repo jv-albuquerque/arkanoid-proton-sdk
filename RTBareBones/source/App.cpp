@@ -66,6 +66,14 @@ bool App::Init()
 	player = new Player();
 	player->Init(initialPos, size, color, 80);
 
+	// BALL INIT
+	initialPos = CL_Vec2f(100, 100);
+	float radius = 5;
+	color = MAKE_RGBA(255, 255, 255, 255);
+
+	ball = new Ball();
+	ball->Init(initialPos, radius, color, 100);
+
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{
 		//SetLockedLandscape( true); //if we don't allow portrait mode for this game
@@ -246,6 +254,7 @@ void App::Update()
 
 	BaseApp::Update();
 	player->Update(float(GetDeltaTick()));
+	ball->Update(float(GetDeltaTick()));
 
 	if (!m_bDidPostInit)
 	{
@@ -300,6 +309,7 @@ void App::Draw()
 
 	BaseApp::Draw();
 	player->Draw();
+	ball->Draw();
 }
 
 
