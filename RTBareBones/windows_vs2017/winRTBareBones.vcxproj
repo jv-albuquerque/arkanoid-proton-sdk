@@ -1784,6 +1784,7 @@
     <ClInclude Include="..\..\shared\win\powerVR\OGLES\Include\GLES\gl.h" />
     <ClInclude Include="..\..\shared\win\WinUtils.h" />
     <ClInclude Include="..\source\App.h" />
+    <ClInclude Include="..\source\Object.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\shared\android\v2_src\java\BillingReceiver.java" />
