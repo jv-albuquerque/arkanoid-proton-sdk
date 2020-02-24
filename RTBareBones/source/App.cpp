@@ -51,14 +51,21 @@ App::~App()
 
 bool App::Init()
 {
-	
 	if (m_bInitted)	
 	{
 		return true;
 	}
 	
 	if (!BaseApp::Init()) return false;
-	
+
+	// PLAYER INIT
+	CL_Vec2f size(80, 15);
+	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 20 - size.y);
+	uint32 color = MAKE_RGBA(255, 128, 74, 255);
+
+	player = new Player();
+	player->Init(initialPos, size, color, 80);
+
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{
 		//SetLockedLandscape( true); //if we don't allow portrait mode for this game
@@ -139,6 +146,8 @@ void App::OnArcadeInput(VariantList *pVList)
 
 	int vKey = pVList->Get(0).GetUINT32();
 	eVirtualKeyInfo keyInfo = (eVirtualKeyInfo) pVList->Get(1).GetUINT32();
+
+	player->OnArcadeInput(vKey, keyInfo);
 	
 	string pressed;
 
@@ -236,6 +245,7 @@ void App::Update()
 	//we use in this example is one that is watching for the Back (android) or Escape key to quit that we setup earlier.
 
 	BaseApp::Update();
+	player->Update(float(GetDeltaTick()));
 
 	if (!m_bDidPostInit)
 	{
@@ -253,10 +263,6 @@ void App::Update()
 		//nothing will happen unless we give it input focus
 		pEnt->AddComponent(new FocusInputComponent);
 
-		//ACCELTEST:  To test the accelerometer uncomment below: (will print values to the debug output)
-		//SetAccelerometerUpdateHz(25); //default is 0, disabled
-		//GetBaseApp()->m_sig_accel.connect(1, boost::bind(&App::OnAccel, this, _1));
-
 		//TRACKBALL/ARCADETEST: Uncomment below to see log messages on trackball/key movement input
 		pComp = pEnt->AddComponent(new ArcadeInputComponent);
 		GetBaseApp()->m_sig_arcade_input.connect(1, boost::bind(&App::OnArcadeInput, this, _1));
@@ -271,29 +277,6 @@ void App::Update()
 		//INPUT TEST - wire up input to some functions to manually handle.  AppInput will use LogMsg to
 		//send them to the log.  (Each device has a way to view a debug log in real-time)
 		GetBaseApp()->m_sig_input.connect(&AppInput);
-
-		//this one gives raw up and down of keyboard events, where the one above only gives
-		//MESSAGE_TYPE_GUI_CHAR which is just the down and includes keyboard repeats from
-		//holding the key
-		//GetBaseApp()->m_sig_raw_keyboard.connect(&AppInputRawKeyboard);
-		
-		
-		/*
-		//file handling test, if TextScanner.h is included at the top..
-
-		TextScanner t;
-		t.m_lines.push_back("Testing 123");
-		t.m_lines.push_back("Heck yeah!");
-		t.m_lines.push_back("Whoopsopsop!");
-
-		LogMsg("Saving file...");
-		t.SaveFile("temp.txt");
-
-
-		TextScanner b;
-		b.LoadFile("temp.txt");
-		b.DumpToLog();
-		*/
 	}
 
 	//game is thinking.  
@@ -310,48 +293,13 @@ void App::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	CLEAR_GL_ERRORS() //honestly I don't know why I get a 0x0502 GL error when doing the FIRST gl action that requires a context with emscripten only
 
-	//draw our game stuff
-	DrawFilledRect(10.0f,10.0f,GetScreenSizeXf()/3,GetScreenSizeYf()/3, MAKE_RGBA(255,255,0,255));
-	DrawFilledRect(0,0,64,64, MAKE_RGBA(0,255,0,100));
+	
 
 	//after our 2d rect call above, we need to prepare for raw GL again. (it keeps it in ortho mode if we don't for speed)
-	PrepareForGL();
-	RenderSpinningTriangle();
-	//RenderGLTriangle();
-	//let's blit a bmp, but first load it if needed
+	PrepareForGL();	
 
-	if (!m_surf.IsLoaded())
-	{
-		m_surf.LoadFile("interface/test.bmp");
-	}
-
-	m_surf.Bind();
-
-	//RenderTexturedGLTriangle();
-	//RenderTexturedGLTriangleWithDrawElements();
-
-	//blit the logo with the Y mirrored
-	//rtRect texRect = rtRect(0, m_surf.GetHeight(), m_surf.GetWidth(), 0);
-	//rtRect destRect = rtRect(0,0, m_surf.GetWidth(), m_surf.GetHeight());
-	//m_surf.BlitEx(destRect, texRect);
-
-	//make the logo spin like a wheel, whee!
-	//m_surf.BlitEx(destRect, texRect, MAKE_RGBA(255,255,255,255) , 180*SinGamePulseByMS(3000), CL_Vec2f(m_surf.GetWidth()/2,m_surf.GetHeight()/2));
-
-	//blit it normally
-	m_surf.Blit(0, 0);
-	//m_surf.Blit(100, 100);
-
-	m_surf.BlitScaled(100, 200, CL_Vec2f(1,1), ALIGNMENT_CENTER, MAKE_RGBA(255,255,255,255), SinGamePulseByMS(3000)*360);
-
-	m_surf.BlitRotated(400, 200, CL_Vec2f(0.2f,0.2f), ALIGNMENT_CENTER, MAKE_RGBA(255,255,255,255), SinGamePulseByMS(4000)*360,
-		CL_Vec2f(20,-20), NULL);
-
-	//GetFont(FONT_SMALL)->Draw(0,0, "test");
-	GetFont(FONT_SMALL)->DrawScaled(0,GetScreenSizeYf()-50, "white `2Green `3Cyan `4Red `5Purp ",1+SinGamePulseByMS(3000)*0.7f);
-	
-	//the base handles actually drawing the GUI stuff over everything else, if applicable, which in this case it isn't.
 	BaseApp::Draw();
+	player->Draw();
 }
 
 

@@ -8,6 +8,7 @@
 #pragma once
 
 #include "BaseApp.h"
+#include "Player.h"
 
 class App: public BaseApp
 {
@@ -35,6 +36,7 @@ private:
 
 	bool m_bDidPostInit;
 	Surface m_surf; //for testing
+	Player* player;
 };
 
 
