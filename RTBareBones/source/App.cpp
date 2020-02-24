@@ -58,6 +58,14 @@ bool App::Init()
 	
 	if (!BaseApp::Init()) return false;
 
+	// PLAYER INIT
+	CL_Vec2f size(80, 15);
+	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 20 - size.y);
+	uint32 color = MAKE_RGBA(255, 128, 74, 255);
+
+	player = new Player();
+	player->Init(initialPos, size, color, 80);
+
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{
 		//SetLockedLandscape( true); //if we don't allow portrait mode for this game
@@ -138,6 +146,8 @@ void App::OnArcadeInput(VariantList *pVList)
 
 	int vKey = pVList->Get(0).GetUINT32();
 	eVirtualKeyInfo keyInfo = (eVirtualKeyInfo) pVList->Get(1).GetUINT32();
+
+	player->OnArcadeInput(vKey, keyInfo);
 	
 	string pressed;
 
@@ -235,7 +245,7 @@ void App::Update()
 	//we use in this example is one that is watching for the Back (android) or Escape key to quit that we setup earlier.
 
 	BaseApp::Update();
-	//player->Update(float(GetDeltaTick()));
+	player->Update(float(GetDeltaTick()));
 
 	if (!m_bDidPostInit)
 	{
@@ -289,7 +299,7 @@ void App::Draw()
 	PrepareForGL();	
 
 	BaseApp::Draw();
-	//player->Draw();
+	player->Draw();
 }
 
 
