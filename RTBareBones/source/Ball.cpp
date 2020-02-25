@@ -3,32 +3,32 @@
 
 void Ball::verifyOutOfScreen()
 {
-	float leftLimit = GetScreenSizeX() - radius;
+	float rightLimit = GetScreenSizeX() - radius;
 	float bottomLimit = GetScreenSizeY() - radius;
 
 	//left limit
 	if (pos.x <= 0 + radius)
 	{
 		pos.x = 0 + radius;
-		dir = CL_Vec2f(0, 0);
+		dir.mirror(CL_Vec2f(1,0));
 	}
 	//right limit
-	else if (pos.x >= leftLimit)
+	else if (pos.x >= rightLimit)
 	{
-		pos.x = leftLimit;
-		dir = CL_Vec2f(0, 0);
+		pos.x = rightLimit;
+		dir.mirror(CL_Vec2f(-1, 0));
 	}
 	//top limit
 	else if (pos.y <= 0 + radius)
 	{
 		pos.y = 0 + radius;
-		dir = CL_Vec2f(0, 0);
+		dir.mirror(CL_Vec2f(0, 1));
 	}
 	//bottom limit
 	else if (pos.y >= bottomLimit)
 	{
 		pos.y = bottomLimit;
-		dir = CL_Vec2f(0, 0);
+		dir.mirror(CL_Vec2f(0, -1));
 	}
 }
 

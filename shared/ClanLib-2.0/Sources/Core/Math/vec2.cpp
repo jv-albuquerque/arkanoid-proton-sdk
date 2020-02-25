@@ -119,6 +119,19 @@ CL_Vec2<Type> &CL_Vec2<Type>::normalize()
 }
 
 template<typename Type>
+CL_Vec2<Type>& CL_Vec2<Type>::mirror(const CL_Vec2<Type>& normal)
+{
+	
+	Type tDot = dot(normal) * 2;
+	CL_Vec2<Type> v(normal.x * tDot, normal.y * tDot);
+
+	x = x - v.x;
+	y = y - v.y;
+
+	return *this;
+}
+
+template<typename Type>
 CL_Vec2<Type> CL_Vec2<Type>::normalize(const CL_Vec2<Type>& vector)
 {
 	CL_Vec2<Type> dest(vector);
