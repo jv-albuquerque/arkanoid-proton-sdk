@@ -160,7 +160,7 @@ public:
 	/// Operates in the native datatype
 	///
 	/// \return reference to this object
-	CL_Vec2<Type>& mirror(const CL_Vec2<Type>& normal);
+	CL_Vec2<Type>& mirror(CL_Vec2<Type>& normal);
 
 	/// \brief Dot products this vector with an other vector.
 	///

@@ -17,5 +17,7 @@ public:
 	virtual void Draw();
 	virtual void Update(float deltaTick);
 	void OnArcadeInput(int vKey, eVirtualKeyInfo keyInfo);
+	float* GetBox() { float p[] = { pos.x, pos.y, pos.x + size.x, pos.y + size.y }; return p; }
+	float GetMoveScale() { return moveScale; }
 };
 

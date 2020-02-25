@@ -59,8 +59,8 @@ bool App::Init()
 	if (!BaseApp::Init()) return false;
 
 	// PLAYER INIT
-	CL_Vec2f size(80, 15);
-	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 20 - size.y);
+	CL_Vec2f size(200, 100);
+	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 120 - size.y);
 	uint32 color = MAKE_RGBA(255, 128, 74, 255);
 
 	player = new Player();
@@ -72,7 +72,7 @@ bool App::Init()
 	color = MAKE_RGBA(255, 255, 255, 255);
 
 	ball = new Ball();
-	ball->Init(initialPos, radius, color, 70);
+	ball->Init(player, initialPos, radius, color, 70);
 
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{
@@ -80,11 +80,11 @@ bool App::Init()
 		//SetManualRotationMode(true); //don't use manual, it may be faster (33% on a 3GS) but we want iOS's smooth rotations
 	}
 
-	LogMsg("The Save path is %s", GetSavePath().c_str());
-	LogMsg("Region string is %s", GetRegionString().c_str());
+	//LogMsg("The Save path is %s", GetSavePath().c_str());
+	//LogMsg("Region string is %s", GetRegionString().c_str());
 
 #ifdef _DEBUG
-	LogMsg("Built in debug mode");
+	//LogMsg("Built in debug mode");
 #endif
 #ifndef C_NO_ZLIB
 	//fonts need zlib to decompress.  When porting a new platform I define C_NO_ZLIB and add zlib support later sometimes
@@ -102,7 +102,7 @@ void App::Kill()
 
 void App::OnExitApp(VariantList *pVarList)
 {
-	LogMsg("Exiting the app");
+	//LogMsg("Exiting the app");
 	OSMessage o;
 	o.m_type = OSMessage::MESSAGE_FINISH_APP;
 	GetBaseApp()->AddOSMessage(o);
@@ -120,7 +120,7 @@ void App::OnAccel(VariantList *pVList)
 
 	CL_Vec3f v = pVList->m_variant[1].GetVector3();
 
-	LogMsg("Accel: %s", PrintVector3(v).c_str());
+	//LogMsg("Accel: %s", PrintVector3(v).c_str());
 
 	v.x = v.x * kFilteringFactor + v.x * (1.0f - kFilteringFactor);
 	v.y = v.y * kFilteringFactor + v.y * (1.0f - kFilteringFactor);
@@ -141,7 +141,7 @@ void App::OnAccel(VariantList *pVList)
             VariantList vList(CL_Vec2f(), pEnt);
 			pEnt->GetFunction("OnButtonSelected")->sig_function(&vList);
 		}
-		LogMsg("Shake!");
+		//LogMsg("Shake!");
 	}
 }
 
@@ -199,7 +199,7 @@ void App::OnArcadeInput(VariantList *pVList)
 
 	}
 	
-	LogMsg("Arcade input: Hit %d (%s) (%s)", vKey, keyName.c_str(), pressed.c_str());
+	//LogMsg("Arcade input: Hit %d (%s) (%s)", vKey, keyName.c_str(), pressed.c_str());
 }
 
 void AppInputRawKeyboard(VariantList *pVList)
@@ -207,7 +207,7 @@ void AppInputRawKeyboard(VariantList *pVList)
 	char key = (char) pVList->Get(0).GetUINT32();
 	bool bDown = pVList->Get(1).GetUINT32() != 0;	
 	
-	LogMsg("Raw key %c (%d)",key, (int)bDown);
+	//LogMsg("Raw key %c (%d)",key, (int)bDown);
 }
 
 void AppInput(VariantList *pVList)
@@ -230,22 +230,22 @@ void AppInput(VariantList *pVList)
 	switch (msgType)
 	{
 	case MESSAGE_TYPE_GUI_CLICK_START:
-		LogMsg("Touch start: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
+		//LogMsg("Touch start: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
 		break;
 	case MESSAGE_TYPE_GUI_CLICK_MOVE:
-		LogMsg("Touch move: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
+		//LogMsg("Touch move: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
 		break;
 
 	case MESSAGE_TYPE_GUI_CLICK_MOVE_RAW:
 		//LogMsg("Touch raw move: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
 		break;
 	case MESSAGE_TYPE_GUI_CLICK_END:
-		LogMsg("Touch end: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
+		//LogMsg("Touch end: X: %.2f YL %.2f (Finger %d)", pt.x, pt.y, fingerID);
 		break;
 
 	case MESSAGE_TYPE_GUI_CHAR:
 		char key = (char)pVList->Get(2).GetUINT32();
-		LogMsg("Hit key %c (%d)", key, (int)key);
+		//LogMsg("Hit key %c (%d)", key, (int)key);
 		break;
 	}	
 }
