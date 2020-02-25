@@ -3,11 +3,50 @@
 
 void Ball::verifyOutOfScreen()
 {
+	float leftLimit = GetScreenSizeX() - radius;
+	float bottomLimit = GetScreenSizeY() - radius;
+
+	//left limit
+	if (pos.x <= 0 + radius)
+	{
+		pos.x = 0 + radius;
+		dir = CL_Vec2f(0, 0);
+	}
+	//right limit
+	else if (pos.x >= leftLimit)
+	{
+		pos.x = leftLimit;
+		dir = CL_Vec2f(0, 0);
+	}
+	//top limit
+	else if (pos.y <= 0 + radius)
+	{
+		pos.y = 0 + radius;
+		dir = CL_Vec2f(0, 0);
+	}
+	//bottom limit
+	else if (pos.y >= bottomLimit)
+	{
+		pos.y = bottomLimit;
+		dir = CL_Vec2f(0, 0);
+	}
 }
 
 void Ball::Update(float deltaTick)
 {
 	Move(deltaTick);
+}
+
+void Ball::reset()
+{
+	pos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
+
+	CL_Vec2f newDir(RandomRangeFloat(-1, 1), RandomRangeFloat(-1, 1));
+	newDir.normalize();
+
+	dir = newDir;
+
+	LogMsg("%f : %f", dir.x, dir.y);
 }
 
 void Ball::Init(CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed)
@@ -17,7 +56,7 @@ void Ball::Init(CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed
 	color = _color;
 	speed = _speed;
 
-	CL_Vec2f newDir(RandomRangeFloat(0, 1), RandomRangeFloat(0, 1));
+	CL_Vec2f newDir(RandomRangeFloat(-1, 1), RandomRangeFloat(0, 1));
 	newDir.normalize();
 
 	dir = newDir;

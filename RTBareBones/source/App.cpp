@@ -67,12 +67,12 @@ bool App::Init()
 	player->Init(initialPos, size, color, 80);
 
 	// BALL INIT
-	initialPos = CL_Vec2f(100, 100);
+	initialPos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
 	float radius = 5;
 	color = MAKE_RGBA(255, 255, 255, 255);
 
 	ball = new Ball();
-	ball->Init(initialPos, radius, color, 100);
+	ball->Init(initialPos, radius, color, 70);
 
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{
@@ -153,6 +153,8 @@ void App::OnArcadeInput(VariantList *pVList)
 {
 
 	int vKey = pVList->Get(0).GetUINT32();
+	int bDown = pVList->Get(1).GetUINT32();
+
 	eVirtualKeyInfo keyInfo = (eVirtualKeyInfo) pVList->Get(1).GetUINT32();
 
 	player->OnArcadeInput(vKey, keyInfo);
@@ -192,6 +194,8 @@ void App::OnArcadeInput(VariantList *pVList)
 		case VIRTUAL_KEY_DIR_DOWN:
 			keyName = "Down";
 			break;
+		default:
+			ball->reset();
 
 	}
 	
@@ -201,7 +205,8 @@ void App::OnArcadeInput(VariantList *pVList)
 void AppInputRawKeyboard(VariantList *pVList)
 {
 	char key = (char) pVList->Get(0).GetUINT32();
-	bool bDown = pVList->Get(1).GetUINT32() != 0;
+	bool bDown = pVList->Get(1).GetUINT32() != 0;	
+	
 	LogMsg("Raw key %c (%d)",key, (int)bDown);
 }
 

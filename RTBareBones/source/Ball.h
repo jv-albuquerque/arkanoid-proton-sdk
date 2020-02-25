@@ -15,5 +15,6 @@ public:
 	virtual void Init(CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed = 10);
 	virtual void Draw();
 	virtual void Update(float deltaTick);
+	void reset();
 };
 

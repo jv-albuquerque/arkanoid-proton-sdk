@@ -39,7 +39,7 @@ GLint gluUnProject(float winx, float winy, float winz,
 void RotateGLIfNeeded();
 void PushRotationMatrix(float rotation, CL_Vec2f vRotatePt);
 void PopRotationMatrix();
-void DrawCircle (CL_Vec2f vPos, float radius, uint32 color);
+void DrawCircle (CL_Vec2f vPos, float radius, uint32 color, bool vFilled = true);
 void DrawEllipse (const int segments, CL_Vec2f vPos, float radianWidth, float radiusHeight, bool vFilled, uint32 color = MAKE_RGBA(255,255,255,255));
 void SetOrthoRenderSize(float x, float y, int screenOffsetX, int screenOffsetY);
 void RemoveOrthoRenderSize();
