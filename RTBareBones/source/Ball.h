@@ -9,7 +9,7 @@ private:
 	CL_Vec2f dir;
 
 	void verifyOutOfScreen();
-	void Move();
+	void Move(float deltaTick);
 
 public:
 	virtual void Init(CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed = 10);
