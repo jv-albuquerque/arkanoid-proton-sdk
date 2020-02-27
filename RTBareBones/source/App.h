@@ -10,6 +10,7 @@
 #include "BaseApp.h"
 #include "Player.h"
 #include "Ball.h"
+#include "Block.h"
 
 class App: public BaseApp
 {
@@ -26,6 +27,7 @@ public:
 	virtual void OnEnterForeground();
 	virtual bool OnPreInitVideo();
 	virtual void Update();
+	void AddBlocks();
 	void OnExitApp(VariantList *pVarList);
 	
 	
@@ -39,6 +41,7 @@ private:
 	Surface m_surf; //for testing
 	Player* player;
 	Ball* ball;
+	list<Block>* blocks;
 };
 
 
