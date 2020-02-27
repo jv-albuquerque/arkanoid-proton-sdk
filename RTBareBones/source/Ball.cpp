@@ -64,7 +64,8 @@ bool Ball::verifyHitBlocks()
 		if (CollisionSphereRect(minX, maxX, minY, maxY, true))
 		{
 			//TODO: create a callback to increase the points
-			blocks->erase(it);
+			if(it->Hit(1))
+				blocks->erase(it);
 			return true;
 		}
 	}
