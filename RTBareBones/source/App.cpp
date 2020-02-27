@@ -59,8 +59,8 @@ bool App::Init()
 	if (!BaseApp::Init()) return false;
 
 	// PLAYER INIT
-	CL_Vec2f size(200, 100);
-	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 120 - size.y);
+	CL_Vec2f size(80, 20);
+	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 20 - size.y);
 	uint32 color = MAKE_RGBA(255, 128, 74, 255);
 
 	player = new Player();
