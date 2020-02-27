@@ -153,7 +153,14 @@ public:
 	/// Operates in the native datatype
 	///
 	/// \return reference to this object
-	CL_Vec2<Type> &normalize();
+	CL_Vec2<Type>& normalize();
+
+	/// \brief Mirror rhis vector
+	///
+	/// Operates in the native datatype
+	///
+	/// \return reference to this object
+	CL_Vec2<Type>& mirror(CL_Vec2<Type>& normal);
 
 	/// \brief Dot products this vector with an other vector.
 	///

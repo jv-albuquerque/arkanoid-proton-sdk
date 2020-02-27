@@ -34,8 +34,6 @@ void Player::Update(float deltaTick)
 {
 	pos.x += 0.01f * speed * moveScale * deltaTick;
 
-	LogMsg("%f", deltaTick);
-
 	verifyOutOfScreen();
 }
 

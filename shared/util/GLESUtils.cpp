@@ -295,6 +295,11 @@ void DrawRect(float x, float y, float width, float height, uint32 color, float l
 	GenerateFillRect(color, (x+width)-lineWidth, y+lineWidth, lineWidth, (height-lineWidth*2)); //left side
 }
 
+void DrawCircle(CL_Vec2f vPos, float radius, uint32 color, bool vFilled)
+{
+	DrawEllipse(20, vPos, radius, radius, vFilled, color);
+}
+
 
 void DrawEllipse (const int segments, CL_Vec2f vPos, float radianWidth, float radiusHeight, bool vFilled, uint32 color)
 {
