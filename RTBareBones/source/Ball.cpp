@@ -61,7 +61,7 @@ bool Ball::verifyHitBlocks()
 		float minY = box[1];
 		float maxY = box[3];
 
-		if (CollisionSphereRect(minX, maxX, minY, maxY, true))
+		if (CollisionSphereRect(minX, maxX, minY, maxY))
 		{
 			//TODO: create a callback to increase the points
 			if(it->Hit(1))
@@ -156,17 +156,21 @@ bool Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, b
 	{
 		if (closestX == minX)
 		{
-			//topLeftEdge
+			// topLeftEdge = top
 			if (closestY == minY)
 			{
-				dir = CL_Vec2f(-1, -1).normalize();
+				dir.mirror(CL_Vec2f(0, 1));
+				if (isPlayer)
+				{
+					//TODO: move the ball in the angle
+				}
 				closestX -= radius;
 				closestY -= radius;
 			}
-			//botLeftEdge
+			// botLeftEdge = left
 			else if (closestY == maxY)
 			{
-				dir = CL_Vec2f(-1, 1).normalize();
+				dir.mirror(CL_Vec2f(-1, 0));
 				closestX -= radius;
 				closestY += radius;
 			}
@@ -179,21 +183,25 @@ bool Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, b
 		}
 		else if(closestX == maxX)
 		{
-			//topRightEdge
+			// topRightEdge = top
 			if (closestY == minY)
 			{
-				dir = CL_Vec2f(1, -1).normalize();
+				dir.mirror(CL_Vec2f(0, 1));
+				if (isPlayer)
+				{
+					//TODO: move the ball in the angle
+				}
 				closestX += radius;
 				closestY -= radius;
 			}
-			//botRightEdge
+			// botRightEdge = right
 			else if (closestY == maxY)
 			{
-				dir = CL_Vec2f(1, 1).normalize();
+				dir.mirror(CL_Vec2f(1, 0));
 				closestX += radius;
 				closestY += radius;
 			}
-			//right
+			// right
 			else
 			{
 				dir.mirror(CL_Vec2f(1, 0));
@@ -202,13 +210,13 @@ bool Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, b
 		}
 		else
 		{			
-			//bot
+			// bot
 			if (closestY == maxY)
 			{
 				dir.mirror(CL_Vec2f(0, 1));
 				closestY += radius;
 			}
-			//top
+			// top
 			else
 			{
 				dir.mirror(CL_Vec2f(0, -1));
