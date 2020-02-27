@@ -27,6 +27,7 @@ public:
 	virtual void OnEnterForeground();
 	virtual bool OnPreInitVideo();
 	virtual void Update();
+	void AddBlocks();
 	void OnExitApp(VariantList *pVarList);
 	
 	

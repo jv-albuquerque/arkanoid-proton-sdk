@@ -68,29 +68,7 @@ bool App::Init()
 
 	// BLOCKS INIT
 	blocks = new list<Block>();
-
-	int r, g, b;
-	int column = 15;
-	int row = 5;
-
-	for (int i = 0; i < column * row; i++)
-	{
-		r = (i / column + 1) / 4;
-		g = ((i / column + 1) - r * 4) / 2;
-		b = ((i / column + 1) - r * 4 - g * 2) % 2;
-
-		size = CL_Vec2f(60, 15);
-		initialPos = CL_Vec2f(54.5 + 61 * (i % column), 50 + 15 * (i / column + 1));
-		color = MAKE_RGBA(255 * r, 255 * g, 255 * b, 255);
-
-		Block* newBlock = new Block();
-
-		newBlock->Init(initialPos, size, color, 1);
-		blocks->push_back(*newBlock);
-	}
-
-	LogMsg("Screen size: %d", GetScreenSizeX());
-	
+	AddBlocks();
 
 	// BALL INIT
 	initialPos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
@@ -320,6 +298,33 @@ void App::Update()
 	}
 
 	//game is thinking.  
+}
+
+void App::AddBlocks()
+{
+	CL_Vec2f size;
+	CL_Vec2f initialPos;
+	uint32 color;
+
+	int r, g, b;
+	int column = 15;
+	int row = 5;
+
+	for (int i = 0; i < column * row; i++)
+	{
+		r = (i / column + 1) / 4;
+		g = ((i / column + 1) - r * 4) / 2;
+		b = ((i / column + 1) - r * 4 - g * 2) % 2;
+
+		size = CL_Vec2f(60, 15);
+		initialPos = CL_Vec2f(54.5 + 61 * (i % column), 50 + 15 * (i / column + 1));
+		color = MAKE_RGBA(255 * r, 255 * g, 255 * b, 255);
+
+		Block* newBlock = new Block();
+
+		newBlock->Init(initialPos, size, color, 1);
+		blocks->push_back(*newBlock);
+	}
 }
 
 void App::Draw()
