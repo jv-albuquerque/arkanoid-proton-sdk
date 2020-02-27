@@ -51,6 +51,7 @@ bool Ball::verifyHitPlayer()
 bool Ball::verifyHitBlocks()
 {
 	list<Block>::iterator it;
+
 	for (it = blocks->begin(); it != blocks->end(); it++)
 	{
 		float* box = it->GetBox();
@@ -63,7 +64,7 @@ bool Ball::verifyHitBlocks()
 		if (CollisionSphereRect(minX, maxX, minY, maxY, true))
 		{
 			//TODO: create a callback to increase the points
-			//blocks->remove(*it);
+			blocks->erase(it);
 			return true;
 		}
 	}

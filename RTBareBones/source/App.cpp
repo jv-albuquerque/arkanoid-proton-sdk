@@ -67,16 +67,20 @@ bool App::Init()
 	player->Init(initialPos, size, color, 80);
 
 	// BLOCKS INIT
-	size = CL_Vec2f(40, 10);
-	initialPos = CL_Vec2f(50, 50);
-	color = MAKE_RGBA(255, 0, 0, 255);
-
-	Block *b = new Block();
-
-	b->Init(initialPos, size, color);
-
 	blocks = new list<Block>();
-	blocks->push_back(*b);
+
+	for (int i = 0; i < 10; i++)
+	{
+		size = CL_Vec2f(60, 15);
+		initialPos = CL_Vec2f(30 + 61*i, 50);
+		color = MAKE_RGBA(255, 0, 0, 255);
+
+		Block* b = new Block();
+
+		b->Init(initialPos, size, color);
+		blocks->push_back(*b);
+	}
+	
 
 	// BALL INIT
 	initialPos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
