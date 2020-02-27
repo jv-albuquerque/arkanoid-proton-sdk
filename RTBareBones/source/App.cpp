@@ -66,13 +66,25 @@ bool App::Init()
 	player = new Player();
 	player->Init(initialPos, size, color, 80);
 
+	// BLOCKS INIT
+	size = CL_Vec2f(40, 10);
+	initialPos = CL_Vec2f(50, 50);
+	color = MAKE_RGBA(255, 0, 0, 255);
+
+	Block *b = new Block();
+
+	b->Init(initialPos, size, color);
+
+	blocks = new list<Block>();
+	blocks->push_back(*b);
+
 	// BALL INIT
 	initialPos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
 	float radius = 5;
 	color = MAKE_RGBA(255, 255, 255, 255);
 
 	ball = new Ball();
-	ball->Init(player, initialPos, radius, color, 70);
+	ball->Init(player, blocks, initialPos, radius, color, 70);
 
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{
@@ -315,6 +327,15 @@ void App::Draw()
 	BaseApp::Draw();
 	player->Draw();
 	ball->Draw();
+
+	if (blocks->size() > 0)
+	{
+		list<Block>::iterator it;
+		for (it = blocks->begin(); it != blocks->end(); it++)
+		{
+			it->Draw();
+		}
+	}
 }
 
 

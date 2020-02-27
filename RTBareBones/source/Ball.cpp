@@ -1,7 +1,7 @@
 #include "PlatformPrecomp.h"
 #include "Ball.h"
 
-void Ball::verifyOutOfScreen()
+bool Ball::verifyOutOfScreen()
 {
 	float rightLimit = GetScreenSizeX() - radius;
 	float bottomLimit = GetScreenSizeY() - radius;
@@ -10,7 +10,7 @@ void Ball::verifyOutOfScreen()
 	if (pos.x <= 0 + radius)
 	{
 		pos.x = 0 + radius;
-		dir.mirror(CL_Vec2f(1,0));
+		dir.mirror(CL_Vec2f(1, 0));
 	}
 	//right limit
 	else if (pos.x >= rightLimit)
@@ -30,17 +30,45 @@ void Ball::verifyOutOfScreen()
 		pos.y = bottomLimit;
 		dir.mirror(CL_Vec2f(0, -1));
 	}
+	else
+		return false;
+
+	return true;
 }
 
-void Ball::verifyHitPlayer()
+bool Ball::verifyHitPlayer()
 {
 	float* box = player->GetBox();
+
 	float minX = box[0];
 	float maxX = box[2];
 	float minY = box[1];
 	float maxY = box[3];
 
-	CollisionSphereRect(minX, maxX, minY, maxY, true);
+	return CollisionSphereRect(minX, maxX, minY, maxY, true);
+}
+
+bool Ball::verifyHitBlocks()
+{
+	list<Block>::iterator it;
+	for (it = blocks->begin(); it != blocks->end(); it++)
+	{
+		float* box = it->GetBox();
+
+		float minX = box[0];
+		float maxX = box[2];
+		float minY = box[1];
+		float maxY = box[3];
+
+		if (CollisionSphereRect(minX, maxX, minY, maxY, true))
+		{
+			//TODO: create a callback to increase the points
+			//blocks->remove(*it);
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void Ball::Update(float deltaTick)
@@ -59,9 +87,10 @@ void Ball::reset()
 }
 
 
-void Ball::Init(Player* _player, CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed)
+void Ball::Init(Player* _player, list<Block>* _blocks, CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed)
 {
 	player = _player;
+	blocks = _blocks;
 	pos = _initialPos;
 	radius = _radius;
 	color = _color;
@@ -80,34 +109,46 @@ void Ball::Draw()
 
 void Ball::Move(float deltaTick)
 {
-	verifyOutOfScreen();
-	verifyHitPlayer();
+	if(verifyOutOfScreen()) {}
+	else if(verifyHitPlayer()) {}
+	else if(verifyHitBlocks()) {}
+
 	pos.x += 0.01f * speed * dir.x * deltaTick;
 	pos.y += 0.01f * speed * dir.y * deltaTick;
 }
 
-void Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, bool isPlayer)
+bool Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, bool isPlayer)
 {
-	if (pos.y - radius < minY) return;	
+	if (pos.y - radius < minY) return false;
+
+	bool result = false;
+	float distance;
+	float closestX;
+	float closestY;
 
 	//remove the ball from inside the rect
+	//while the ball stills inside the rect
 	while ((pos.x <= maxX && pos.x >= minX) && (pos.y <= maxY && pos.y >= minY))
 	{
 		pos.x -= dir.x;
 		pos.y -= dir.y;
+		result = true;
 	}
 
 	// Find the closest point to the circle within the rectangle
-	float closestX = Clamp(pos.x, minX, maxX);
-	float closestY = Clamp(pos.y, minY, maxY);
+	closestX = Clamp(pos.x, minX, maxX);
+	closestY = Clamp(pos.y, minY, maxY);
 
+	//if the ball was inside the rect, it already collides
+	if (result)
+	{
+		CL_Vec2f closest(closestX, closestY);
 
-	CL_Vec2f closest(closestX, closestY);
-	
-	// If the distance is less than the circle's radius, an intersection occurs
-	float distance = closest.distance(pos);
+		// If the distance is less than the circle's radius, an intersection occurs
+		distance = closest.distance(pos);
 
-	bool result = distance < radius;
+		result = distance < radius;
+	}
 
 	if (result)
 	{
@@ -179,6 +220,8 @@ void Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, b
 
 		pos = CL_Vec2f(closestX, closestY);
 	}
+
+	return result;
 }
 
 float Ball::Clamp(float v, float lo, float hi)

@@ -10,6 +10,7 @@
 #include "BaseApp.h"
 #include "Player.h"
 #include "Ball.h"
+#include "Block.h"
 
 class App: public BaseApp
 {
@@ -39,6 +40,7 @@ private:
 	Surface m_surf; //for testing
 	Player* player;
 	Ball* ball;
+	list<Block>* blocks;
 };
 
 

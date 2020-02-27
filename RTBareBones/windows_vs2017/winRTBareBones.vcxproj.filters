@@ -340,7 +340,7 @@
     <ClCompile Include="..\source\Ball.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\source\Square.cpp">
+    <ClCompile Include="..\source\Block.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -587,7 +587,7 @@
     </ClInclude>
     <ClInclude Include="..\source\Player.h" />
     <ClInclude Include="..\source\Ball.h" />
-    <ClInclude Include="..\source\Square.h" />
+    <ClInclude Include="..\source\Block.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\android\ant.properties">

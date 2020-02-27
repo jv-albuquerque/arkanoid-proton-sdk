@@ -21,8 +21,6 @@ void Player::Init(CL_Vec2f _initialPos, CL_Vec2f _size, uint32 _color, float _sp
 	size = _size;
 	color = _color;
 	speed = _speed;
-
-	LogMsg("The Player has correctly inited!");
 }
 
 void Player::Draw()
