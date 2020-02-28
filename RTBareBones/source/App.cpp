@@ -59,24 +59,25 @@ bool App::Init()
 	if (!BaseApp::Init()) return false;
 
 	// PLAYER INIT
+	float speed = 80;
 	CL_Vec2f size(120, 25);
 	CL_Vec2f initialPos(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) - 20 - size.y);
 	uint32 color = MAKE_RGBA(255, 128, 74, 255);
 
 	player = new Player();
-	player->Init(initialPos, size, color, 80);
+	player->Init(initialPos, size, color, speed);
 
 	// BLOCKS INIT
 	blocks = new list<Block>();
 	AddBlocks();
 
 	// BALL INIT
-	initialPos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
+	speed = 70;
 	float radius = 5;
 	color = MAKE_RGBA(255, 255, 255, 255);
 
 	ball = new Ball();
-	ball->Init(player, blocks, initialPos, radius, color, 70);
+	ball->Init(player, blocks, radius, color, speed);
 
 	if (GetEmulatedPlatformID() == PLATFORM_ID_IOS || GetEmulatedPlatformID() == PLATFORM_ID_WEBOS)
 	{

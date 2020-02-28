@@ -7,10 +7,11 @@ class Ball
 {
 private:
 	CL_Vec2f pos;
+	CL_Vec2f dir;
 	uint32 color;
 	float radius;
 	float speed;
-	CL_Vec2f dir;
+	bool notLaunched;
 
 	bool verifyOutOfScreen();
 	bool verifyHitPlayer();
@@ -21,7 +22,7 @@ private:
 	float Clamp(float v, float lo, float hi);
 
 public:
-	void Init(Player* _player, list<Block>* _blocks, CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed = 10);
+	void Init(Player* _player, list<Block>* _blocks, float _radius, uint32 _color, float _speed = 10);
 	virtual void Draw();
 	virtual void Update(float deltaTick);
 	void reset();

@@ -585,9 +585,15 @@
     <ClInclude Include="..\..\shared\linux\PlatformSetupLinux.h">
       <Filter>shared\linux</Filter>
     </ClInclude>
-    <ClInclude Include="..\source\Player.h" />
-    <ClInclude Include="..\source\Ball.h" />
-    <ClInclude Include="..\source\Block.h" />
+    <ClInclude Include="..\source\Ball.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Block.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Player.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\android\ant.properties">

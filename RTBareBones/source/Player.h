@@ -1,4 +1,5 @@
 #pragma once
+
 class Player
 {
 private:
@@ -19,5 +20,6 @@ public:
 	void OnArcadeInput(int vKey, eVirtualKeyInfo keyInfo);
 	float* GetBox() { float p[] = { pos.x, pos.y, pos.x + size.x, pos.y + size.y }; return p; }
 	float GetMoveScale() { return moveScale; }
+	CL_Vec2f initialBallPos() { return CL_Vec2f(pos.x + size.x / 2, pos.y); };
 };
 

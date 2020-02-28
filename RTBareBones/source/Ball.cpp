@@ -89,19 +89,18 @@ void Ball::reset()
 }
 
 
-void Ball::Init(Player* _player, list<Block>* _blocks, CL_Vec2f _initialPos, float _radius, uint32 _color, float _speed)
+void Ball::Init(Player* _player, list<Block>* _blocks, float _radius, uint32 _color, float _speed)
 {
 	player = _player;
 	blocks = _blocks;
-	pos = _initialPos;
 	radius = _radius;
 	color = _color;
 	speed = _speed;
 
-	CL_Vec2f newDir(RandomRangeFloat(-1, 1), RandomRangeFloat(0, 1));
-	newDir.normalize();
+	notLaunched = true;
+	pos = player->initialBallPos() - CL_Vec2f(0, radius);
 
-	dir = newDir;
+	dir = CL_Vec2f(0,0);
 }
 
 void Ball::Draw()
@@ -111,6 +110,13 @@ void Ball::Draw()
 
 void Ball::Move(float deltaTick)
 {
+
+	if (notLaunched)
+	{
+		pos = player->initialBallPos() - CL_Vec2f(0, radius);
+		return;
+	}
+
 	if(verifyOutOfScreen()) {}
 	else if(verifyHitPlayer()) {}
 	else if(verifyHitBlocks()) {}
