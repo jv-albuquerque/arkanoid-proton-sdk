@@ -199,7 +199,8 @@ bool Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, b
 				dir.mirror(CL_Vec2f(0, 1));
 				if (isPlayer)
 				{
-					//TODO: move the ball in the angle
+					dir += CL_Vec2f(player->GetMoveScale()*0.5,0);
+					dir.normalize();
 				}
 				closestX += radius;
 				closestY -= radius;
@@ -232,7 +233,8 @@ bool Ball::CollisionSphereRect(float minX, float maxX, float minY, float maxY, b
 				dir.mirror(CL_Vec2f(0, -1));
 				if (isPlayer)
 				{
-					//TODO: move the ball in the angle
+					dir += CL_Vec2f(player->GetMoveScale()*0.5, 0);
+					dir.normalize();
 				}
 				closestY -= radius;
 			}
