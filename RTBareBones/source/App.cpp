@@ -292,6 +292,7 @@ void App::Update()
 		AddKeyBinding(pComp, "Up", VIRTUAL_KEY_DIR_UP, VIRTUAL_KEY_DIR_UP);
 		AddKeyBinding(pComp, "Down", VIRTUAL_KEY_DIR_DOWN, VIRTUAL_KEY_DIR_DOWN);
 		AddKeyBinding(pComp, "Fire", VIRTUAL_KEY_CONTROL, VIRTUAL_KEY_GAME_FIRE);
+		AddKeyBinding(pComp, "Fire", 32, VIRTUAL_KEY_GAME_FIRE);
 
 		//INPUT TEST - wire up input to some functions to manually handle.  AppInput will use LogMsg to
 		//send them to the log.  (Each device has a way to view a debug log in real-time)
