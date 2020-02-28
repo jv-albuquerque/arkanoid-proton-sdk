@@ -265,6 +265,8 @@ void App::Update()
 	BaseApp::Update();
 	player->Update(float(GetDeltaTick()));
 	ball->Update(float(GetDeltaTick()));
+	if (blocks->size() == 0)
+		AddBlocks();
 
 	if (!m_bDidPostInit)
 	{
