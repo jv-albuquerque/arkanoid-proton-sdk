@@ -200,7 +200,7 @@ void App::OnArcadeInput(VariantList *pVList)
 			keyName = "Down";
 			break;
 		default:
-			ball->reset();
+			ball->Launch();
 
 	}
 	

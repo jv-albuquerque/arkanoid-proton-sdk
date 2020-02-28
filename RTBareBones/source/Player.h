@@ -2,8 +2,6 @@
 #define PLAYER_H
 #pragma once
 
-#include "Callback.h"
-
 class Player
 {
 private:
@@ -25,7 +23,6 @@ public:
 	float* GetBox() { float p[] = { pos.x, pos.y, pos.x + size.x, pos.y + size.y }; return p; }
 	float GetMoveScale() { return moveScale; }
 	CL_Vec2f initialBallPos() { return CL_Vec2f(pos.x + size.x / 2, pos.y); };
-	void RegisterCallbacks();
 };
 #endif
 

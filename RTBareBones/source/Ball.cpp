@@ -27,8 +27,7 @@ bool Ball::verifyOutOfScreen()
 	//bottom limit
 	else if (pos.y >= bottomLimit)
 	{
-		pos.y = bottomLimit;
-		dir.mirror(CL_Vec2f(0, -1));
+		reset();
 	}
 	else
 		return false;
@@ -80,18 +79,20 @@ void Ball::Update(float deltaTick)
 
 void Ball::reset()
 {
-	pos = CL_Vec2f(float(GetScreenSizeX()) / 2, float(GetScreenSizeY()) / 2);
+	notLaunched = true;
+	pos = player->initialBallPos() - CL_Vec2f(0, radius);
 
-	CL_Vec2f newDir(RandomRangeFloat(-1, 1), RandomRangeFloat(-1, 1));
-	newDir.normalize();
-
-	dir = newDir;
+	dir = CL_Vec2f(0, 0);
 }
 
 void Ball::Launch()
 {
-	notLaunched = false;
-	dir = CL_Vec2f(player->GetMoveScale(), -1);
+	if(notLaunched)
+	{
+		notLaunched = false;
+		dir = CL_Vec2f(player->GetMoveScale(), -1);
+		dir.normalize();
+	}
 }
 
 
@@ -103,10 +104,7 @@ void Ball::Init(Player* _player, list<Block>* _blocks, float _radius, uint32 _co
 	color = _color;
 	speed = _speed;
 
-	notLaunched = true;
-	pos = player->initialBallPos() - CL_Vec2f(0, radius);
-
-	dir = CL_Vec2f(0,0);
+	reset();
 }
 
 void Ball::Draw()
