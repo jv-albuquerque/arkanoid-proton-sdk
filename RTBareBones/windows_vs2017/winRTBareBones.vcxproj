@@ -445,6 +445,7 @@
       <PrecompiledHeaderFile>PlatformPrecomp.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib;zdll.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -1704,6 +1705,7 @@
     <ClCompile Include="..\source\App.cpp" />
     <ClCompile Include="..\source\Ball.cpp" />
     <ClCompile Include="..\source\Block.cpp" />
+    <ClCompile Include="..\source\Callback.cpp" />
     <ClCompile Include="..\source\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -1789,6 +1791,7 @@
     <ClInclude Include="..\source\App.h" />
     <ClInclude Include="..\source\Ball.h" />
     <ClInclude Include="..\source\Block.h" />
+    <ClInclude Include="..\source\Callback.h" />
     <ClInclude Include="..\source\Player.h" />
   </ItemGroup>
   <ItemGroup>

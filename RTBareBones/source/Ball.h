@@ -1,3 +1,5 @@
+#ifndef BALL_H
+#define BALL_H
 #pragma once
 
 #include "Player.h"
@@ -30,9 +32,10 @@ public:
 	CL_Vec2f GetPos() { return pos; }
 	float GetRadius() { return radius; }
 	void SetDirection(CL_Vec2f normal) { dir.mirror(normal); }
+	void Launch();
 
 private:
 	Player* player;
 	list<Block>* blocks;
 };
-
+#endif

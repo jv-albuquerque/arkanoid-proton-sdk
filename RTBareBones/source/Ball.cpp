@@ -88,6 +88,12 @@ void Ball::reset()
 	dir = newDir;
 }
 
+void Ball::Launch()
+{
+	notLaunched = false;
+	dir = CL_Vec2f(player->GetMoveScale(), -1);
+}
+
 
 void Ball::Init(Player* _player, list<Block>* _blocks, float _radius, uint32 _color, float _speed)
 {

@@ -1,4 +1,7 @@
+#ifndef BLOCK_H
+#define BLOCK_H
 #pragma once
+
 class Block
 {
 private:
@@ -13,4 +16,5 @@ public:
 	float* GetBox() { float p[] = { pos.x, pos.y, pos.x + size.x, pos.y + size.y }; return p; }
 	bool Hit(int damage);
 };
+#endif
 
