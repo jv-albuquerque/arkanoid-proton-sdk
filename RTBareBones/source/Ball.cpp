@@ -19,9 +19,9 @@ bool Ball::verifyOutOfScreen()
 		dir.mirror(CL_Vec2f(-1, 0));
 	}
 	//top limit
-	else if (pos.y <= 0 + radius)
+	else if (pos.y <= 100 + radius)
 	{
-		pos.y = 0 + radius;
+		pos.y = 100 + radius;
 		dir.mirror(CL_Vec2f(0, 1));
 	}
 	//bottom limit

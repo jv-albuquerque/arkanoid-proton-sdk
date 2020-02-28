@@ -58,6 +58,10 @@ bool App::Init()
 	
 	if (!BaseApp::Init()) return false;
 
+	// UI INIT
+	ui = new UI();
+	ui->Init(3);
+
 	// PLAYER INIT
 	float speed = 80;
 	CL_Vec2f size(120, 25);
@@ -316,12 +320,12 @@ void App::AddBlocks()
 
 	for (int i = 0; i < column * row; i++)
 	{
-		r = (i / column + 1) / 4;
-		g = ((i / column + 1) - r * 4) / 2;
-		b = ((i / column + 1) - r * 4 - g * 2) % 2;
+		b = (i / column + 1) / 4;
+		g = ((i / column + 1) - b * 4) / 2;
+		r = ((i / column + 1) - b * 4 - g * 2) % 2;
 
 		size = CL_Vec2f(60, 15);
-		initialPos = CL_Vec2f(54.5 + 61 * (i % column), 50 + 15 * (i / column + 1));
+		initialPos = CL_Vec2f(54.5 + 61 * (i % column), 150 + 15 * (i / column + 1));
 		color = MAKE_RGBA(255 * r, 255 * g, 255 * b, 255);
 
 		Block* newBlock = new Block();
@@ -350,6 +354,7 @@ void App::Draw()
 	BaseApp::Draw();
 	player->Draw();
 	ball->Draw();
+	ui->Draw();
 
 	if (blocks->size() > 0)
 	{
@@ -359,6 +364,7 @@ void App::Draw()
 			it->Draw();
 		}
 	}
+
 }
 
 

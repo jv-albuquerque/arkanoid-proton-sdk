@@ -346,6 +346,9 @@
     <ClCompile Include="..\source\Callback.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\UI.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\source\App.h">
@@ -598,6 +601,7 @@
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="..\source\Callback.h" />
+    <ClInclude Include="..\source\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\android\ant.properties">

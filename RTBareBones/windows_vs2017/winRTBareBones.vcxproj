@@ -1707,6 +1707,7 @@
     <ClCompile Include="..\source\Block.cpp" />
     <ClCompile Include="..\source\Callback.cpp" />
     <ClCompile Include="..\source\Player.cpp" />
+    <ClCompile Include="..\source\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\shared\android\AndroidUtils.h" />
@@ -1793,6 +1794,7 @@
     <ClInclude Include="..\source\Block.h" />
     <ClInclude Include="..\source\Callback.h" />
     <ClInclude Include="..\source\Player.h" />
+    <ClInclude Include="..\source\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\shared\android\v2_src\java\BillingReceiver.java" />

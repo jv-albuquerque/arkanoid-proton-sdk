@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "Ball.h"
 #include "Block.h"
+#include "UI.h"
 
 class App: public BaseApp
 {
@@ -40,6 +41,7 @@ private:
 	bool m_bDidPostInit;
 	Surface m_surf; //for testing
 	Player* player;
+	UI* ui;
 	Ball* ball;
 	list<Block>* blocks;
 };
