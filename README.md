@@ -4,9 +4,9 @@ Using this project to study the **Proton SDK**.
 ## Overview
 I'm creating a version of the game arkanoid. I'm using this project to refresh and improve my knowledge about C++ and Proton SDK.
 
-More information about the Proton SDK:
-[GitHub](https://github.com/SethRobinson/proton)
-[Wiki](https://www.rtsoft.com/wiki/doku.php?id=proton)
+More information about the Proton SDK:<br/>
+  [GitHub](https://github.com/SethRobinson/proton)<br/>
+  [Wiki](https://www.rtsoft.com/wiki/doku.php?id=proton)
 
 ## Open the project
 To test my project you need to: open the Visual Studio Solution that you can find in this path
