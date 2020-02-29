@@ -346,15 +346,16 @@ void App::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	CLEAR_GL_ERRORS() //honestly I don't know why I get a 0x0502 GL error when doing the FIRST gl action that requires a context with emscripten only
 
-	
 
 	//after our 2d rect call above, we need to prepare for raw GL again. (it keeps it in ortho mode if we don't for speed)
-	PrepareForGL();	
+	PrepareForGL();			
 
 	BaseApp::Draw();
 	player->Draw();
 	ball->Draw();
 	ui->Draw();
+
+	GetFont(FONT_SMALL)->Draw(0, 0, "test", MAKE_RGBA(0, 255, 0, 100));
 
 	if (blocks->size() > 0)
 	{

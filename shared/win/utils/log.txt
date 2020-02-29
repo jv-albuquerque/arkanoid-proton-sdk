@@ -1,0 +1,104 @@
+29/2 11:51:3: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:51:3: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:51:3: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont..
+29/2 11:51:3: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont.  (29 kb, 6%%)
+29/2 11:51:3: Finished creating C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont.  223 chars, 20 font state definitions.
+29/2 11:51:3: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:51:3: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex (128 X 128) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:51:3: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:51:3: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:51:3: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:51:3: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex..
+29/2 11:51:3: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex.  (24 kb, 5%%)
+29/2 11:51:3: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:51:3: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex..
+29/2 11:51:3: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex.  (5 kb, 9%%)
+29/2 11:59:44: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:44: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:59:44: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont..
+29/2 11:59:44: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont.  (29 kb, 6%%)
+29/2 11:59:44: Finished creating C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont.  223 chars, 20 font state definitions.
+29/2 11:59:44: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:44: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex (128 X 128) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:59:44: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:44: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:59:44: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:44: Padding C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.png from 720X720 to be 1024X1024
+29/2 11:59:44: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.rttex (720 X 720) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 11:59:45: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:45: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex..
+29/2 11:59:45: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex.  (24 kb, 5%%)
+29/2 11:59:45: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:45: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.rttex..
+29/2 11:59:45: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.rttex.  (11 kb, 0%%)
+29/2 11:59:45: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 11:59:45: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex..
+29/2 11:59:45: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex.  (5 kb, 9%%)
+29/2 12:8:16: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:16: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 12:8:16: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont..
+29/2 12:8:16: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont.  (29 kb, 6%%)
+29/2 12:8:16: Finished creating C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan.rtfont.  223 chars, 20 font state definitions.
+29/2 12:8:16: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:16: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex (128 X 128) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 12:8:16: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:16: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 12:8:16: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:17: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\FreePixel_0.rttex (512 X 256) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 12:8:17: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:17: Padding C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.png from 720X720 to be 1024X1024
+29/2 12:8:17: Saved out C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.rttex (720 X 720) with 1 mipmaps. (uses alpha) (RGBA 32 bit format)
+29/2 12:8:17: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:17: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex..
+29/2 12:8:17: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\font_trajan_00.rttex.  (24 kb, 5%%)
+29/2 12:8:17: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:17: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\FreePixel_0.rttex..
+29/2 12:8:17: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\FreePixel_0.rttex.  (9 kb, 2%%)
+29/2 12:8:17: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:17: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.rttex..
+29/2 12:8:17: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\pixel-heart.rttex.  (11 kb, 0%%)
+29/2 12:8:17: 
+RTPack V1.5 by Seth A. Robinson. (compiled with PVRTC support) /h for help
+
+29/2 12:8:17: Compressing C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex..
+29/2 12:8:17: Compressed to C:\Users\jvalb\Documents\GitHubProjects\arkanoid-proton-sdk\RTBareBones\media\interface\test.rttex.  (5 kb, 9%%)

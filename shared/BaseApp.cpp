@@ -152,7 +152,7 @@ void BaseApp::Draw()
     VariantList vList(Variant(0,0));
     
 	m_sig_render(&vList);
-
+	m_bFPSVisible = false;
 	if (GetFPSVisible())
 	{
 		char stTemp[256];

@@ -9,6 +9,12 @@ private:
 	int score;
 	int highscore;
 	uint32 divColor;
+	Surface heart;
+	RTFont* myFont;
+
+	void printLife();
+	void printHighscore();
+	void printScore();
 
 public:
 	virtual void Init(int _lifes);
